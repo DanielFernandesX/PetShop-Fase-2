@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PetShop Pata Feliz: banho e tosa com tele-busca ou entrega no local.">
+  <title>Início | PetShop Pata Feliz</title>
+  <!-- Bootstrap 5 via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+<header>
+<nav class="navbar navbar-expand-md navbar-dark" aria-label="Menu principal">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🐾 Pata Feliz</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu de navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="cadastro.html">Cadastro</a></li>
+        <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendamento</a></li>
+      </ul>
+      <!-- Botões de acessibilidade -->
+      <div class="btn-group" role="group" aria-label="Ferramentas de acessibilidade">
+        <button type="button" class="btn btn-light btn-sm" id="btn-aumentar" aria-label="Aumentar tamanho da fonte">A+</button>
+        <button type="button" class="btn btn-light btn-sm" id="btn-diminuir" aria-label="Diminuir tamanho da fonte">A−</button>
+        <button type="button" class="btn btn-light btn-sm" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+<main id="conteudo">
+  <!-- Carrossel Bootstrap: cada imagem tem texto alternativo (alt) para leitores de tela -->
+  <div id="carrossel" class="carousel slide" data-bs-ride="carousel" aria-label="Destaques do petshop">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carrossel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carrossel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carrossel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/banner-banho.svg" class="d-block w-100" alt="Cachorro feliz tomando banho com espuma em uma banheira">
+        <div class="carousel-caption"><h2>Banho com carinho</h2><p>Produtos suaves para a pele do seu pet.</p></div>
+      </div>
+      <div class="carousel-item">
+        <img src="img/banner-tosa.svg" class="d-block w-100" alt="Poodle recém tosado com laço no pescoço, ao lado de uma tesoura">
+        <div class="carousel-caption"><h2>Tosa para todas as raças</h2><p>Higiênica, na máquina ou na tesoura.</p></div>
+      </div>
+      <div class="carousel-item">
+        <img src="img/banner-tele.svg" class="d-block w-100" alt="Van do petshop com patinhas desenhadas, usada na tele-busca">
+        <div class="carousel-caption"><h2>Tele-busca</h2><p>Buscamos e devolvemos o pet na sua casa.</p></div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carrossel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Slide anterior</span></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carrossel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Próximo slide</span></button>
+  </div>
+
+  <div class="container mt-4">
+    <!-- Funções temporais: saudação e status de funcionamento (main.js) -->
+    <h1 id="saudacao" class="h2">Bem-vindo!</h1>
+    <p class="lead mb-1" aria-live="polite"><span id="status-loja"></span></p>
+    <p id="relogio" class="text-muted"></p>
+
+    <h2 class="h3 mt-4">Nossos serviços</h2>
+    <div class="row g-3">
+      <div class="col-md-6"><div class="card card-servico h-100"><div class="card-body">
+        <h3 class="h5">🛁 Banho</h3><p>Shampoo adequado ao tipo de pelo, secagem e perfume.</p>
+        <a href="agendamento.html" class="btn btn-destaque">Agendar banho</a></div></div></div>
+      <div class="col-md-6"><div class="card card-servico h-100"><div class="card-body">
+        <h3 class="h5">✂️ Tosa</h3><p>Tosa higiênica ou completa, com profissionais experientes.</p>
+        <a href="agendamento.html" class="btn btn-destaque">Agendar tosa</a></div></div></div>
+    </div>
+
+    <h2 class="h3 mt-4">Horário de funcionamento</h2>
+    <ul>
+      <li>Segunda a sexta: 08h às 18h</li>
+      <li>Sábado: 08h às 13h</li>
+      <li>Domingo: fechado</li>
+    </ul>
+    <p>Ainda não é cliente? <a href="cadastro.html">Faça seu cadastro</a>.</p>
+  </div>
+</main>
+<footer class="py-4 mt-5">
+  <div class="container text-center">
+    <p class="mb-1">Rua das Patinhas, 123 – Porto Alegre/RS · (51) 3000-0000</p>
+    <p class="mb-0">&copy; <span id="ano">2026</span> PetShop Pata Feliz</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

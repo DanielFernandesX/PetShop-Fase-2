@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PetShop Pata Feliz: banho e tosa com tele-busca ou entrega no local.">
+  <title>Cadastro | PetShop Pata Feliz</title>
+  <!-- Bootstrap 5 via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+<header>
+<nav class="navbar navbar-expand-md navbar-dark" aria-label="Menu principal">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🐾 Pata Feliz</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu de navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="cadastro.html">Cadastro</a></li>
+        <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendamento</a></li>
+      </ul>
+      <!-- Botões de acessibilidade -->
+      <div class="btn-group" role="group" aria-label="Ferramentas de acessibilidade">
+        <button type="button" class="btn btn-light btn-sm" id="btn-aumentar" aria-label="Aumentar tamanho da fonte">A+</button>
+        <button type="button" class="btn btn-light btn-sm" id="btn-diminuir" aria-label="Diminuir tamanho da fonte">A−</button>
+        <button type="button" class="btn btn-light btn-sm" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+<main id="conteudo" class="container mt-4">
+  <h1 class="h2">Cadastro do cliente e do pet</h1>
+  <p>Campos marcados com <span aria-hidden="true">*</span><span class="visually-hidden">asterisco</span> são obrigatórios.</p>
+
+  <form id="form-cadastro" novalidate>
+    <!-- DADOS DO CLIENTE -->
+    <fieldset class="border rounded p-3 mb-4">
+      <legend class="h5 w-auto px-2">Dados do cliente</legend>
+      <div class="row g-3">
+        <div class="col-md-8">
+          <label for="nome" class="form-label">Nome completo *</label>
+          <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex.: Maria da Silva" minlength="5" required>
+          <div class="invalid-feedback">Informe o nome completo.</div>
+        </div>
+        <div class="col-md-4">
+          <label for="cpf" class="form-label">CPF *</label>
+          <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" required>
+          <div class="invalid-feedback">Informe um CPF válido.</div>
+        </div>
+        <div class="col-md-4">
+          <label for="nascimento" class="form-label">Data de nascimento *</label>
+          <input type="date" class="form-control" id="nascimento" name="nascimento" required>
+          <div class="invalid-feedback">Informe uma data de nascimento válida (maior de 18 anos).</div>
+        </div>
+        <div class="col-md-8">
+          <span id="lbl-sexo" class="form-label d-block">Sexo *</span>
+          <div role="radiogroup" aria-labelledby="lbl-sexo">
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="sexo" id="sexo-f" value="Feminino" required><label class="form-check-label" for="sexo-f">Feminino</label></div>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="sexo" id="sexo-m" value="Masculino"><label class="form-check-label" for="sexo-m">Masculino</label></div>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="sexo" id="sexo-o" value="Outro"><label class="form-check-label" for="sexo-o">Outro / prefiro não informar</label></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="telefone" class="form-label">Telefone / WhatsApp *</label>
+          <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(51) 99999-9999" maxlength="15" required>
+          <div class="invalid-feedback">Informe o telefone com DDD.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">E-mail *</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="voce@exemplo.com" required>
+          <div class="invalid-feedback">Informe um e-mail válido.</div>
+        </div>
+        <div class="col-md-8">
+          <label for="endereco" class="form-label">Endereço (rua e número) *</label>
+          <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua, número, complemento" required>
+          <div class="invalid-feedback">Informe o endereço.</div>
+        </div>
+        <div class="col-md-4">
+          <label for="bairro" class="form-label">Bairro *</label>
+          <input type="text" class="form-control" id="bairro" name="bairro" required>
+          <div class="invalid-feedback">Informe o bairro.</div>
+        </div>
+        <div class="col-md-4">
+          <label for="cidade" class="form-label">Cidade</label>
+          <input type="text" class="form-control" id="cidade" name="cidade" value="Porto Alegre">
+        </div>
+        <div class="col-md-3">
+          <label for="uf" class="form-label">Estado</label>
+          <select class="form-select" id="uf" name="uf">
+            <option value="RS" selected>RS</option><option value="SC">SC</option><option value="PR">PR</option><option value="SP">SP</option><option value="RJ">RJ</option><option value="MG">MG</option><option value="OUTRO">Outro</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- DADOS DO PET -->
+    <fieldset class="border rounded p-3 mb-4">
+      <legend class="h5 w-auto px-2">Dados do pet</legend>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label for="pet-nome" class="form-label">Nome do pet *</label>
+          <input type="text" class="form-control" id="pet-nome" name="pet-nome" placeholder="Ex.: Thor" required>
+          <div class="invalid-feedback">Informe o nome do pet.</div>
+        </div>
+        <div class="col-md-4">
+          <label for="pet-especie" class="form-label">Espécie *</label>
+          <select class="form-select" id="pet-especie" name="pet-especie" required>
+            <option value="">Selecione…</option><option>Cachorro</option><option>Gato</option>
+          </select>
+          <div class="invalid-feedback">Selecione a espécie.</div>
+        </div>
+        <div class="col-md-4">
+          <label for="pet-raca" class="form-label">Raça *</label>
+          <input type="text" class="form-control" id="pet-raca" name="pet-raca" placeholder="Ex.: Poodle, SRD" required>
+          <div class="invalid-feedback">Informe a raça (ou SRD).</div>
+        </div>
+        <div class="col-md-3">
+          <label for="pet-idade" class="form-label">Idade (anos) *</label>
+          <input type="number" class="form-control" id="pet-idade" name="pet-idade" min="0" max="30" step="1" placeholder="0" required>
+          <div class="invalid-feedback">Informe uma idade entre 0 e 30.</div>
+        </div>
+        <div class="col-md-3">
+          <label for="pet-peso" class="form-label">Peso (kg)</label>
+          <input type="number" class="form-control" id="pet-peso" name="pet-peso" min="0.5" max="100" step="0.1" placeholder="Ex.: 8.5">
+        </div>
+        <div class="col-md-6">
+          <span id="lbl-porte" class="form-label d-block">Porte</span>
+          <div role="radiogroup" aria-labelledby="lbl-porte">
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="porte" id="porte-p" value="Pequeno" checked><label class="form-check-label" for="porte-p">Pequeno</label></div>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="porte" id="porte-m" value="Médio"><label class="form-check-label" for="porte-m">Médio</label></div>
+            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="porte" id="porte-g" value="Grande"><label class="form-check-label" for="porte-g">Grande</label></div>
+          </div>
+        </div>
+        <div class="col-12">
+          <span class="form-label d-block">Cuidados especiais</span>
+          <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="c-alergia" name="cuidados" value="Alergia"><label class="form-check-label" for="c-alergia">Alergia</label></div>
+          <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="c-agressivo" name="cuidados" value="Agressivo/medroso"><label class="form-check-label" for="c-agressivo">Agressivo ou medroso</label></div>
+          <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" id="c-vacina" name="cuidados" value="Vacinas em dia"><label class="form-check-label" for="c-vacina">Vacinas em dia</label></div>
+        </div>
+        <div class="col-12">
+          <label for="obs" class="form-label">Observações</label>
+          <textarea class="form-control" id="obs" name="obs" rows="3" maxlength="300" placeholder="Algo que devemos saber sobre o seu pet?"></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="aceite" required>
+      <label class="form-check-label" for="aceite">Concordo em ter meus dados armazenados para fins de atendimento. *</label>
+      <div class="invalid-feedback">É necessário concordar para continuar.</div>
+    </div>
+
+    <button type="submit" class="btn btn-destaque btn-lg">Salvar cadastro</button>
+    <button type="reset" class="btn btn-outline-secondary btn-lg">Limpar</button>
+  </form>
+
+  <!-- Mensagem de resultado (lida por leitores de tela) -->
+  <div id="msg-cadastro" class="alert alert-success mt-3 d-none" role="status" tabindex="-1"></div>
+</main>
+<footer class="py-4 mt-5">
+  <div class="container text-center">
+    <p class="mb-1">Rua das Patinhas, 123 – Porto Alegre/RS · (51) 3000-0000</p>
+    <p class="mb-0">&copy; <span id="ano">2026</span> PetShop Pata Feliz</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cadastro.js"></script>
+</body>
+</html>
