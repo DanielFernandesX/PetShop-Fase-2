@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PetShop Pata Feliz: banho e tosa com tele-busca ou entrega no local.">
+  <title>Agendamento | PetShop Pata Feliz</title>
+  <!-- Bootstrap 5 via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+<header>
+<nav class="navbar navbar-expand-md navbar-dark" aria-label="Menu principal">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🐾 Pata Feliz</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu de navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="cadastro.html">Cadastro</a></li>
+        <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendamento</a></li>
+      </ul>
+      <!-- Botões de acessibilidade -->
+      <div class="btn-group" role="group" aria-label="Ferramentas de acessibilidade">
+        <button type="button" class="btn btn-light btn-sm" id="btn-aumentar" aria-label="Aumentar tamanho da fonte">A+</button>
+        <button type="button" class="btn btn-light btn-sm" id="btn-diminuir" aria-label="Diminuir tamanho da fonte">A−</button>
+        <button type="button" class="btn btn-light btn-sm" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+<main id="conteudo" class="container mt-4">
+  <h1 class="h2">Agendar banho ou tosa</h1>
+  <form id="form-agenda" novalidate>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="ag-cpf" class="form-label">CPF do cliente cadastrado *</label>
+        <input type="text" class="form-control" id="ag-cpf" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" required>
+        <div class="invalid-feedback" id="ag-cpf-erro">Informe o CPF usado no cadastro.</div>
+        <div class="form-text">Ainda não tem cadastro? <a href="cadastro.html">Cadastre-se aqui</a>.</div>
+      </div>
+      <div class="col-md-6">
+        <label for="servico" class="form-label">Serviço *</label>
+        <select class="form-select" id="servico" required>
+          <option value="">Selecione…</option>
+          <option value="Banho">Banho</option>
+          <option value="Tosa">Tosa</option>
+          <option value="Banho e Tosa">Banho e Tosa</option>
+        </select>
+        <div class="invalid-feedback">Escolha o serviço.</div>
+      </div>
+
+      <div class="col-12">
+        <span id="lbl-metodo" class="form-label d-block">Como o pet chegará ao petshop? *</span>
+        <div role="radiogroup" aria-labelledby="lbl-metodo">
+          <div class="form-check"><input class="form-check-input" type="radio" name="metodo" id="m-tele" value="Tele-busca" required><label class="form-check-label" for="m-tele">Tele-busca (buscamos e devolvemos em casa)</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="metodo" id="m-local" value="Entrega no local"><label class="form-check-label" for="m-local">Entrega no local (eu levo o pet ao petshop)</label></div>
+        </div>
+      </div>
+
+      <!-- Aparece somente se escolher tele-busca -->
+      <div class="col-12 d-none" id="bloco-endereco">
+        <label for="ag-endereco" class="form-label">Endereço para busca *</label>
+        <input type="text" class="form-control" id="ag-endereco" placeholder="Rua, número, bairro">
+        <div class="invalid-feedback">Informe o endereço para a tele-busca.</div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="data" class="form-label">Data *</label>
+        <input type="date" class="form-control" id="data" required aria-describedby="dica-data">
+        <div class="form-text" id="dica-data">Atendemos de segunda a sábado. Domingos indisponíveis.</div>
+        <div class="invalid-feedback" id="data-erro">Escolha uma data válida.</div>
+      </div>
+      <div class="col-md-6">
+        <label for="hora" class="form-label">Horário *</label>
+        <select class="form-select" id="hora" required><option value="">Escolha primeiro a data</option></select>
+        <div class="invalid-feedback">Escolha o horário.</div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-destaque btn-lg mt-4">Confirmar agendamento</button>
+  </form>
+
+  <div id="msg-agenda" class="alert alert-success mt-3 d-none" role="status" tabindex="-1"></div>
+
+  <h2 class="h4 mt-5">Meus agendamentos neste navegador</h2>
+  <ul id="lista-agendamentos" class="list-group"></ul>
+</main>
+<footer class="py-4 mt-5">
+  <div class="container text-center">
+    <p class="mb-1">Rua das Patinhas, 123 – Porto Alegre/RS · (51) 3000-0000</p>
+    <p class="mb-0">&copy; <span id="ano">2026</span> PetShop Pata Feliz</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/agendamento.js"></script>
+</body>
+</html>
